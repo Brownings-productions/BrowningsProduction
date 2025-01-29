@@ -5,45 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <style>
+        /* General Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
+            background-color: #12192c;
+            color: #fff;
             text-align: center;
         }
+
+                /* Navigation Bar */
+                .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0d1b2a;
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            padding: 10px 18px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: #1b3a5a;
+        }
+
+        /* Header */
+        header {
+            background-color: #1c2b4a;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Profile Section */
+        .profile-container {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: #1a233a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #0f52ba;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Sections */
         section {
             padding: 20px;
             max-width: 800px;
             margin: auto;
-            background: white;
+            background: #1a233a;
             margin-top: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        img {
-            max-width: 100%;
-            border-radius: 8px;
+
+        /* Skills Progress Bar */
+        .skill {
+            text-align: left;
+            margin: 10px 0;
         }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 10px;
+            background-color: #0f52ba;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Links */
         .links a {
             display: inline-block;
             margin: 5px;
             padding: 10px 15px;
             color: white;
-            background-color: #4CAF50;
+            background-color: #0f52ba;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: 0.3s;
         }
+
         .links a:hover {
-            background-color: #45a049;
+            background-color: #0d3d7d;
         }
+
+        /* Social Icons */
+        .links i {
+            margin-right: 8px;
+        }
+
+        /* Videos */
         iframe {
             width: 100%;
             height: 315px;
@@ -51,46 +163,151 @@
             border: none;
             border-radius: 8px;
         }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 10px 20px;
-            background-color: #333;
+            padding: 15px;
+            background-color: #1c2b4a;
             color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
             margin-top: 20px;
         }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Load progress bars dynamically
+        function loadSkills() {
+            document.querySelectorAll('.progress').forEach((bar) => {
+                bar.style.width = bar.getAttribute('data-width');
+            });
+        }
+        window.onload = loadSkills;
+    </script>
 </head>
 <body>
+<!-- Navigation Menu -->
+<nav class="navbar">
+    <div class="logo">My Profile</div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#social">Social</a></li>
+        <li><a href="#videos">Videos</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
 
 <header>
     <h1>Welcome to My Profile</h1>
 </header>
 
-<section>
+<!-- Profile Section -->
+<div class="profile-container">
+    <img src="images/ProfilePic.JPG" alt="Profile Picture" class="profile-img">
+    <h2>Henry Stuart Brown Berven</h2>
+    <p>Aspiring <strong>Mechatronics Engineer</strong> | Passionate about <strong>Design and Innovation</strong></p>
+</div>
+
+<!-- About Me Section -->
+<section id="about">
     <h2>About Me</h2>
-    <p>Hello! My name is [Your Name], and I am passionate about [your passion or profession]. I enjoy [hobbies/interests], and I strive to [your mission or goal].</p>
-    <img src="your-photo.jpg" alt="Your Picture">
+    <p>Hello! My name is Henry Stuart Brown Berven. I am a passionate mechatronics engineer with a keen interest in automation, design, and innovation. I love solving problems and creating efficient solutions using my technical skills. Apart from engineering, I enjoy photography, traveling, and playing the guitar. Welcome to my personal space where I share my journey and projects!</p>
 </section>
 
+<!-- Skills Section -->
 <section>
-    <h2>Find Me Online</h2>
-    <div class="links">
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
-        <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
-        <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
+    <h2>My Skills</h2>
+    <div class="skill">
+        <div class="skill-name">Automation Technician</div>
+        <div class="progress-bar">
+            <div class="progress" data-width="100%"></div>
+        </div>
+    </div>
+    <div class="skill"> 
+        <div class="skill-name">3D modeling and product design</div>
+        <div class="progress-bar">
+            <div class="progress" data-width="45%"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">Mechanical expertise</div>
+        <div class="progress-bar">
+            <div class="progress" data-width="75%"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">Programming</div>
+        <div class="progress-bar">
+            <div class="progress" data-width="35%"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">Electric expertise</div>
+        <div class="progress-bar">
+            <div class="progress" data-width="75%"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">Electronics</div>
+        <div class="progress-bar">
+            <div class="progress" data-width="30%"></div>
+        </div>
     </div>
 </section>
 
+<!-- Education Section -->
 <section>
-    <h2>Gallery</h2>
-    <img src="your-image1.jpg" alt="Gallery Image 1">
-    <img src="your-image2.jpg" alt="Gallery Image 2">
+    <h2>Education</h2>
+    <ul style="list-style: none; padding: 0;">
+        <li>
+            <span style="font-weight: bold;">Bachelor's in Mechatronics</span><br>
+            UIA - Grimstad - Norway
+        </li>
+        <li>
+            <span style="font-weight: bold;">High School Diploma</span><br>
+            Automation Technician - Mandal VGS
+        </li>
+    </ul>
 </section>
 
+<!-- Hobbies Section -->
+<section>
+    <h2>Hobbies</h2>
+    <ul style="list-style: none; padding: 0;">
+        <li>📸 Photography</li>
+        <li>✈️ Traveling</li>
+        <li>🎸 Playing Guitar</li>
+        <li>🎮 Gaming</li>
+        <li>📝 Blogging</li>
+    </ul>
+</section>
+
+<!-- Social Links -->
+<section>
+    <h2>Find Me Online</h2>
+    <div class="links">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+        <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+        <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+    </div>
+</section>
+
+<!-- Videos Section -->
 <section>
     <h2>My Videos</h2>
     <iframe src="https://www.youtube.com/embed/video-id-1" allowfullscreen></iframe>
@@ -98,7 +315,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+    <p>&copy; 2025 Henry Stuart Brown Berven. All rights reserved.</p>
 </footer>
 
 </body>
