@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,8 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #12192c;
-            color: #fff;
+            background-color: #1e4ac5;
+            color: #ffffff;
             text-align: center;
         }
 
@@ -33,14 +34,14 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: white;
+            color: rgb(255, 255, 255);
             text-transform: uppercase;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 10px;
             padding: 0;
             margin: 0;
         }
@@ -129,9 +130,32 @@
 
         .progress {
             height: 10px;
-            background-color: #0f52ba;
+            background-color: #94017b;
             width: 0;
             transition: width 1.5s ease-in-out;
+        }
+
+        .project-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .project-btn {
+            background-color: #00a123;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .project-btn:hover {
+            background-color: #0d3d7d;
         }
 
         /* Links */
@@ -139,8 +163,8 @@
             display: inline-block;
             margin: 5px;
             padding: 10px 15px;
-            color: white;
-            background-color: #0f52ba;
+            color: rgb(0, 255, 13);
+            background-color: #3316b4;
             text-decoration: none;
             border-radius: 5px;
             transition: 0.3s;
@@ -150,6 +174,7 @@
             background-color: #0d3d7d;
         }
 
+        
         /* Social Icons */
         .links i {
             margin-right: 8px;
@@ -168,7 +193,7 @@
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #1c2b4a;
+            background-color: #0d3d7d;
             color: white;
             margin-top: 20px;
         }
@@ -196,20 +221,35 @@
         window.onload = loadSkills;
     </script>
 </head>
+
 <body>
+    <!-- all other content -->
+    <script type="text/javascript">
+      function toggleMenu() {
+        var navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("show");
+      }
+    </script>
+  </body>
+
+<body>
+
 <!-- Navigation Menu -->
 <nav class="navbar">
-    <div class="logo">My Profile</div>
-    <ul class="nav-links">
+    <div class="logo">Bownings Production</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links"id="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#work">Work Experience</a></li>
         <li><a href="#hobbies">Hobbies</a></li>
         <li><a href="#social">Social</a></li>
         <li><a href="#videos">Videos</a></li>
     </ul>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
+
 
 <header>
     <h1 style="margin-top: 100px;">Welcome to My Profile</h1> <!-- Adjusting margin top by adding negative value -->
@@ -229,8 +269,20 @@
     <p>Hello! My name is Henry Stuart Brown Berven. I am a passionate mechatronics engineer with a keen interest in automation, design, and innovation. I love solving problems and creating efficient solutions using my technical skills. Apart from engineering, I enjoy photography, traveling, and playing the guitar. Welcome to my personal space where I share my journey and projects!</p>
 </section>
 
+<!-- Projects Section -->
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-buttons">
+        <a href="#" class="project-btn">Forge</a>
+        <a href="#" class="project-btn">Jarvis AI</a>
+        <a href="#" class="project-btn">Motorbike</a>
+        <a href="#" class="project-btn">3D Modeling</a>
+    </div>
+</section>
+
 <!-- Skills Section -->
-<section>
+<section id="skills">
+
     <h2>My Skills</h2>
     <div class="skill">
         <div class="skill-name">Automation Technician</div>
@@ -271,13 +323,30 @@
 </section>
 
 <!-- Education Section -->
-<section>
+<section id="education">
     <h2>Education</h2>
     <ul style="list-style: none; padding: 0;">
         <li>
             <span style="font-weight: bold;">Bachelor's in Mechatronics</span><br>
             UIA - Grimstad - Norway
         </li>
+    </br>
+        <li>
+            <span style="font-weight: bold;">High School Diploma</span><br>
+            Automation Technician - Mandal VGS
+        </li>
+    </ul>
+</section>
+
+<!-- Work Experience Section -->
+<section id="education">
+    <h2>Work Experience</h2>
+    <ul style="list-style: none; padding: 0;">
+        <li>
+            <span style="font-weight: bold;">Bachelor's in Mechatronics</span><br>
+            UIA - Grimstad - Norway
+        </li>
+    </br>
         <li>
             <span style="font-weight: bold;">High School Diploma</span><br>
             Automation Technician - Mandal VGS
@@ -286,19 +355,25 @@
 </section>
 
 <!-- Hobbies Section -->
-<section>
+<section id="hobbies">
     <h2>Hobbies</h2>
     <ul style="list-style: none; padding: 0;">
-        <li>📸 Photography</li>
+        <li>🧗🏻Klimbing</li>
+    </br>
+        <li>🥏Discgolf</li>
+    </br>
+        <li>🏍Motorbiking</li>
+    </br>
+        <li>🔥Forging</li>
+    </br>
         <li>✈️ Traveling</li>
-        <li>🎸 Playing Guitar</li>
-        <li>🎮 Gaming</li>
-        <li>📝 Blogging</li>
+    </br>
+        <li>💻3D design</li>
     </ul>
 </section>
 
 <!-- Social Links -->
-<section>
+<section id="social">
     <h2>Find Me Online</h2>
     <div class="links">
         <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
@@ -309,7 +384,7 @@
 </section>
 
 <!-- Videos Section -->
-<section>
+<section id="videos">
     <h2>My Videos</h2>
     <iframe src="https://www.youtube.com/embed/video-id-1" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/video-id-2" allowfullscreen></iframe>
