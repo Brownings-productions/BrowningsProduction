@@ -1,398 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
-    <style>
-        /* General Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1e4ac5;
-            color: #ffffff;
-            text-align: center;
-        }
-
-                /* Navigation Bar */
-                .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #0d1b2a;
-            padding: 15px 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: rgb(255, 255, 255);
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 10px;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-links li {
-            display: inline;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
-            padding: 10px 18px;
-            border-radius: 5px;
-        }
-
-        .nav-links a:hover {
-            background-color: #1b3a5a;
-        }
-
-        /* Header */
-        header {
-            background-color: #1c2b4a;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Profile Section */
-        .profile-container {
-            text-align: center;
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background: #1a233a;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #0f52ba;
-            margin-bottom: 10px;
-            transition: transform 0.3s;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Sections */
-        section {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background: #1a233a;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Skills Progress Bar */
-        .skill {
-            text-align: left;
-            margin: 10px 0;
-        }
-
-        .skill-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            background-color: #333;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 10px;
-            background-color: #94017b;
-            width: 0;
-            transition: width 1.5s ease-in-out;
-        }
-
-        .project-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .project-btn {
-            background-color: #00a123;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .project-btn:hover {
-            background-color: #0d3d7d;
-        }
-
-        /* Links */
-        .links a {
-            display: inline-block;
-            margin: 5px;
-            padding: 10px 15px;
-            color: rgb(0, 255, 13);
-            background-color: #3316b4;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .links a:hover {
-            background-color: #0d3d7d;
-        }
-
-        
-        /* Social Icons */
-        .links i {
-            margin-right: 8px;
-        }
-
-        /* Videos */
-        iframe {
-            width: 100%;
-            height: 315px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 8px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #0d3d7d;
-            color: white;
-            margin-top: 20px;
-        }
-
-        /* Fade-in Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script>
-        // Load progress bars dynamically
-        function loadSkills() {
-            document.querySelectorAll('.progress').forEach((bar) => {
-                bar.style.width = bar.getAttribute('data-width');
-            });
-        }
-        window.onload = loadSkills;
-    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HSBB — Profile</title>
+  <meta name="description" content="Portfolio and profile for Henry Stuart Brown Berven." />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="stylesheet" href="site.css">
 </head>
-
 <body>
-    <!-- all other content -->
-    <script type="text/javascript">
-      function toggleMenu() {
-        var navLinks = document.getElementById("nav-links");
-        navLinks.classList.toggle("show");
-      }
-    </script>
-  </body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body>
-
-<!-- Navigation Menu -->
-<nav class="navbar">
-    <div class="logo">Bownings Production</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul class="nav-links"id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#work">Work Experience</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#social">Social</a></li>
-        <li><a href="#videos">Videos</a></li>
-    </ul>
-</nav>
-
-
-<header>
-    <h1 style="margin-top: 100px;">Welcome to My Profile</h1> <!-- Adjusting margin top by adding negative value -->
-</header>
-
-
-<!-- Profile Section -->
-<div class="profile-container">
-    <img src="ProfilePic.JPG" alt="Profile Picture" class="profile-img">
-    <h2>Henry Stuart Brown Berven</h2>
-    <p>Aspiring <strong>Mechatronics Engineer</strong> | Passionate about <strong>Design and Innovation</strong></p>
-</div>
-
-<!-- About Me Section -->
-<section id="about">
-    <h2>About Me</h2>
-    <p>Hello! My name is Henry Stuart Brown Berven. I am a passionate mechatronics engineer with a keen interest in automation, design, and innovation. I love solving problems and creating efficient solutions using my technical skills. Apart from engineering, I enjoy photography, traveling, and playing the guitar. Welcome to my personal space where I share my journey and projects!</p>
-</section>
-
-<!-- Projects Section -->
-<section id="projects">
-    <h2>My Projects</h2>
-    <div class="project-buttons">
-        <a href="#" class="project-btn">Forge</a>
-        <a href="#" class="project-btn">Jarvis AI</a>
-        <a href="#" class="project-btn">Motorbike</a>
-        <a href="#" class="project-btn">3D Modeling</a>
+  <nav class="navbar" aria-label="Primary">
+    <div class="nav-inner">
+      <div class="logo">Bownings Production</div>
+      <div class="nav-spacer"></div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
+      <ul class="nav-links" id="navLinks" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html#about">About</a></li>
+        <li role="none"><a role="menuitem" href="projects.html">Projects</a></li>
+        <li role="none"><a role="menuitem" href="index.html#skills">Skills</a></li>
+        <li role="none"><a role="menuitem" href="index.html#education">Education</a></li>
+        <li role="none"><a role="menuitem" href="index.html#work">Work</a></li>
+        <li role="none"><a role="menuitem" href="index.html#hobbies">Hobbies</a></li>
+        <li role="none"><a role="menuitem" href="index.html#social">Social</a></li>
+        <li role="none"><a role="menuitem" href="index.html#videos">Videos</a></li>
+      </ul>
     </div>
-</section>
+  </nav>
 
-<!-- Skills Section -->
-<section id="skills">
+  <main id="main">
+    <header class="hero">
+      <h1>My Portfolio</h1>
+      <p>Aspiring <strong>Mechatronics Engineer</strong> — passionate about <strong>design & innovation</strong>.</p>
+    </header>
 
-    <h2>My Skills</h2>
-    <div class="skill">
-        <div class="skill-name">Automation Technician</div>
-        <div class="progress-bar">
-            <div class="progress" data-width="100%"></div>
+    <section aria-labelledby="profile-heading">
+      <h2 id="profile-heading" class="sr-only">Profile</h2>
+      <div class="profile">
+        <img src="assets/img/BP_profile_pic.jpg" alt="Portrait of Henry Stuart Brown Berven" />
+        <div>
+          <h3 style="margin:0 0 6px;">Henry Stuart Brown Berven</h3>
+          <p style="margin:0; color: var(--muted);">Engineer-in-training focused on automation, product design, and hands-on making.</p>
         </div>
-    </div>
-    <div class="skill"> 
-        <div class="skill-name">3D modeling and product design</div>
-        <div class="progress-bar">
-            <div class="progress" data-width="45%"></div>
-        </div>
-    </div>
-    <div class="skill">
-        <div class="skill-name">Mechanical expertise</div>
-        <div class="progress-bar">
-            <div class="progress" data-width="75%"></div>
-        </div>
-    </div>
-    <div class="skill">
-        <div class="skill-name">Programming</div>
-        <div class="progress-bar">
-            <div class="progress" data-width="35%"></div>
-        </div>
-    </div>
-    <div class="skill">
-        <div class="skill-name">Electric expertise</div>
-        <div class="progress-bar">
-            <div class="progress" data-width="75%"></div>
-        </div>
-    </div>
-    <div class="skill">
-        <div class="skill-name">Electronics</div>
-        <div class="progress-bar">
-            <div class="progress" data-width="30%"></div>
-        </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- Education Section -->
-<section id="education">
-    <h2>Education</h2>
-    <ul style="list-style: none; padding: 0;">
-        <li>
-            <span style="font-weight: bold;">Bachelor's in Mechatronics</span><br>
-            UIA - Grimstad - Norway
-        </li>
-    </br>
-        <li>
-            <span style="font-weight: bold;">High School Diploma</span><br>
-            Automation Technician - Mandal VGS
-        </li>
-    </ul>
-</section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I’m Henry, a mechatronics student with a keen interest in automation, design, 
+        and building things. Outside of engineering, I enjoy photography, 
+        traveling, driving my motorbike, and working on private projects. Im currently on my 
+        last year of my mechatronics-bachelor's degree. </p>
+    </section>
 
-<!-- Work Experience Section -->
-<section id="education">
-    <h2>Work Experience</h2>
-    <ul style="list-style: none; padding: 0;">
-        <li>
-            <span style="font-weight: bold;">Bachelor's in Mechatronics</span><br>
-            UIA - Grimstad - Norway
-        </li>
-    </br>
-        <li>
-            <span style="font-weight: bold;">High School Diploma</span><br>
-            Automation Technician - Mandal VGS
-        </li>
-    </ul>
-</section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skill"><div class="skill-name">Automation Technician</div><div class="bar"><span data-width="100%"></span></div></div>
+      <div class="skill"><div class="skill-name">3D Modeling & Product Design</div><div class="bar"><span data-width="45%"></span></div></div>
+      <div class="skill"><div class="skill-name">Mechanical Expertise</div><div class="bar"><span data-width="75%"></span></div></div>
+      <div class="skill"><div class="skill-name">Programming</div><div class="bar"><span data-width="35%"></span></div></div>
+      <div class="skill"><div class="skill-name">Electrical Expertise</div><div class="bar"><span data-width="75%"></span></div></div>
+      <div class="skill"><div class="skill-name">Electronics</div><div class="bar"><span data-width="30%"></span></div></div>
+    </section>
 
-<!-- Hobbies Section -->
-<section id="hobbies">
-    <h2>Hobbies</h2>
-    <ul style="list-style: none; padding: 0;">
-        <li>🧗🏻Klimbing</li>
-    </br>
-        <li>🥏Discgolf</li>
-    </br>
-        <li>🏍Motorbiking</li>
-    </br>
-        <li>🔥Forging</li>
-    </br>
-        <li>✈️ Traveling</li>
-    </br>
-        <li>💻3D design</li>
-    </ul>
-</section>
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="list-plain">
+        <li><div><strong>Bachelor’s in Mechatronics</strong></div><div>University of Agder (UiA), Grimstad — Norway</div></li>
+        <li><div><strong>High School Diploma</strong></div><div>Automation Technician — Mandal VGS</div></li>
+      </ul>
+    </section>
 
-<!-- Social Links -->
-<section id="social">
-    <h2>Find Me Online</h2>
-    <div class="links">
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-        <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i>GitHub</a>
-        <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
-        <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
-    </div>
-</section>
+    <section id="work">
+      <h2>Work Experience</h2>
+      <ul class="list-plain">
+        <li><div><strong>Automation-tachnitian / Aludyne</strong> — Farsund, Norway</div><div class="muted">2019 – 2021</div><div>• I finished my apprenticeship at the carfactory, working with systems related to manufacturing car parts.</div></li>
+        <li><div><strong>Intern / Aludyne</strong> — Farsund, Norway</div><div class="muted">2025 – 2025</div><div>• I had my summer internship at aludyne. I was part of setting up the prosess line for the latest Roles Royce and BMW</div></li>
+        <li><div><strong>Intern / Speo</strong> — Kristiansand, Norway</div><div class="muted">2025 – 2025</div><div>• One of my subjects at school was a internship with SPEO. I cooperated with a bachelor groop to develop the second iteration of a patented valve system. Everything from idea generation to a finished valve design.</div></li>
+        <li><div><strong>Machine operator / Kitron</strong> — Arendal, Norway</div><div class="muted">2024 – 2024</div><div>• I operated the machines for the THT department for surcit bords for Hitachi, as well as mounting some larger components by hand. The job also intaled maintanance. (this was a summer jobb) </div></li>
+        <li><div><strong>Forklift-driver / Nikkelverket</strong> — Kristiansand, Norway</div><div class="muted">2023 – 2023</div><div>• I worked in logistics as Forklift driver storing and loding lorries with nickel, copper and cobalt. (this was a summer jobb)</div></li>
+        <li><div><strong>Aprentice car mechanic / Brownings Garage</strong> — London, England</div><div class="muted">2022 – 2022</div><div>• Key contribution or achievement here.</div></li>
+        <li><div><strong>Suply soldier / Norwegian Army</strong> — Setermoen, Norway</div><div class="muted">2021 – 2022</div><div>• Another highlight that shows impact.</div></li>
+      </ul>
+    </section>
 
-<!-- Videos Section -->
-<section id="videos">
-    <h2>My Videos</h2>
-    <iframe src="https://www.youtube.com/embed/video-id-1" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/video-id-2" allowfullscreen></iframe>
-</section>
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <ul class="list-plain">
+        <li>🧗 Climbing</li><li>🥏 Disc golf</li><li>🏍 Motorbiking</li>
+        <li>🔥 Forging</li><li>✈️ Traveling</li><li>💻 3D Design</li>
+      </ul>
+    </section>
 
-<footer>
-    <p>&copy; 2025 Henry Stuart Brown Berven. All rights reserved.</p>
-</footer>
+    <section id="social">
+      <h2>Find Me Online</h2>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/henry-berven-a4887b263/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+        <a href="https://github.com/Brownings-productions" target="_blank" rel="noreferrer noopener">GitHub</a>
+        <a href="https://instagram.com/yourprofile" target="_blank" rel="noreferrer noopener">Instagram</a>
+      </div>
+    </section>
 
+    <section id="videos">
+      <h2>My Videos</h2>
+      <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID_1" title="YouTube video 1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div style="height:12px"></div>
+      <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID_2" title="YouTube video 2" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </section>
+
+    <footer><p>© <span id="year"></span> Henry Stuart Brown Berven. All rights reserved.</p></footer>
+  </main>
+
+  <script src="site.js" defer></script>
 </body>
 </html>
