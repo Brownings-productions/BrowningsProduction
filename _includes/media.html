@@ -1,0 +1,6 @@
+{%- comment -%} A photo, or a striped placeholder box with a label when no photo is set yet. {%- endcomment -%}
+{%- if include.src and include.src != "" -%}
+<div class="media {{ include.cls }}" style="aspect-ratio: {{ include.ratio | default: '16 / 9' }}"><img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}" loading="lazy"></div>
+{%- else -%}
+<div class="media ph {{ include.cls }}" style="aspect-ratio: {{ include.ratio | default: '16 / 9' }}"><span>[{{ include.label | default: 'PHOTO' }}]</span></div>
+{%- endif -%}

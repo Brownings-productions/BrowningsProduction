@@ -1,0 +1,90 @@
+# ─────────────────────────────────────────────────────────────
+#  YOU: name, contact links, about text, skills and experience.
+#  "en" = English, "no" = Norwegian. Leave "" for things you don't have yet.
+# ─────────────────────────────────────────────────────────────
+
+name: "[YOUR NAME]"
+brand: "Browning's Productions"
+location: "Øyslebø, Lindesnes"
+
+email: ""            # e.g. "ola@example.com"  (shows the "Email me" button)
+cv: ""               # e.g. "/assets/cv.pdf"   (upload the PDF to assets/ first)
+
+links:               # paste full links, e.g. "https://www.youtube.com/@yourchannel"
+  youtube: ""
+  instagram: ""
+  linkedin: ""
+  github: ""
+
+hero_photo: "/ProfilePic.JPG"   # your existing photo in the repository
+about_photo: ""      # e.g. "/assets/img/farm.jpg"
+
+hero_lead:
+  en: "Project engineer by day, builder the rest of the time. I live on a farm in southern Norway and work on forestry, solar power, a café racer, a forge and an AI-run smart house, and I document all of it here."
+  nb: "Prosjektingeniør på dagtid, bygger resten av tiden. Jeg bor på en gård på Sørlandet og jobber med skogpleie, solkraft, en café racer, smie og et AI-styrt smarthus, og dokumenterer alt her."
+
+job:
+  en: "Project engineer, SRO · Tratec Norcon"
+  nb: "Prosjektingeniør, SRO · Tratec Norcon"
+
+about_title:
+  en: "Engineer at work. Builder at home."
+  nb: "Ingeniør på jobb. Bygger hjemme."
+
+about:
+  - en: "I work as a project engineer in the SRO department at Tratec Norcon, with building automation: the control, regulation and monitoring of technical systems."
+    nb: "Jeg jobber som prosjektingeniør i SRO-avdelingen hos Tratec Norcon, med byggautomasjon: styring, regulering og overvåking av tekniske anlegg."
+  - en: "Home is a farm in Øyslebø, Lindesnes. That is where the projects happen: caring for young forest, setting up solar power, building a workshop and forge, and turning an old motorbike into a café racer."
+    nb: "Hjemme er en gård på Øyslebø i Lindesnes. Det er der prosjektene skjer: ungskogpleie, solkraft, et verksted med smie, og en gammel motorsykkel som skal bli café racer."
+  - en: "I like to understand how things work and then build them myself. The next step is turning ideas into real products."
+    nb: "Jeg liker å forstå hvordan ting fungerer, og så bygge dem selv. Neste steg er å gjøre ideer om til ekte produkter."
+
+# Skills. Put a skill in square brackets [like this] and it shows as a dashed "to fill in" tag.
+skills:
+  - group: { en: "Automation & tech", nb: "Automasjon og teknologi" }
+    items:
+      - { en: "Building automation (SRO)", nb: "Byggautomasjon (SRO)" }
+      - { en: "Control & monitoring systems", nb: "Styring og overvåking" }
+      - { en: "Home servers & self-hosting", nb: "Hjemmeservere og egen drift" }
+      - { en: "Smart home & AI integration", nb: "Smarthus og AI-integrasjon" }
+      - { en: "[Programming languages]", nb: "[Programmeringsspråk]" }
+  - group: { en: "Workshop", nb: "Verksted" }
+    items:
+      - { en: "Metalwork", nb: "Metallarbeid" }
+      - { en: "Forging", nb: "Smiing" }
+      - { en: "Motorbike mechanics", nb: "Motorsykkelmekanikk" }
+      - { en: "[Welding: MIG / TIG / MMA]", nb: "[Sveising: MIG / TIG / MMA]" }
+  - group: { en: "Land & energy", nb: "Skog og energi" }
+    items:
+      - { en: "Young forest care", nb: "Ungskogpleie" }
+      - { en: "Clearing saw", nb: "Ryddesag" }
+      - { en: "Farm work", nb: "Gårdsarbeid" }
+      - { en: "Solar power planning", nb: "Planlegging av solkraft" }
+  - group: { en: "Certificates & courses", nb: "Sertifikater og kurs" }
+    items:
+      - { en: "[e.g. chainsaw course]", nb: "[f.eks. motorsagkurs]" }
+      - { en: "[Driving licence classes]", nb: "[Førerkortklasser]" }
+      - { en: "[Other certificates]", nb: "[Andre sertifikater]" }
+
+# Experience, newest first.
+timeline:
+  - when: { en: "[YEAR] – now", nb: "[ÅR] – nå" }
+    role: { en: "Project engineer, SRO department", nb: "Prosjektingeniør, SRO-avdelingen" }
+    org: "Tratec Norcon"
+    desc: { en: "Building automation projects: control, regulation and monitoring of technical systems. [Add your main responsibilities.]", nb: "Prosjekter innen byggautomasjon: styring, regulering og overvåking av tekniske anlegg. [Legg til hovedansvar.]" }
+  - when: { en: "Ongoing", nb: "Pågår" }
+    role: { en: "Browning's Productions", nb: "Browning's Productions" }
+    org: "Øyslebø, Lindesnes"
+    desc: { en: "My own projects on the farm: forestry, solar power, workshop and forge, a café racer and a smart house server.", nb: "Egne prosjekter på gården: skogpleie, solkraft, verksted og smie, café racer og smarthusserver." }
+  - when: { en: "[YEAR] – [YEAR]", nb: "[ÅR] – [ÅR]" }
+    role: { en: "[Education / degree]", nb: "[Utdanning / grad]" }
+    org: "[School]"
+    desc: { en: "[Field of study and anything relevant you focused on.]", nb: "[Fagområde og det du fokuserte på.]" }
+  - when: { en: "[YEAR] – [YEAR]", nb: "[ÅR] – [ÅR]" }
+    role: { en: "[Previous job or apprenticeship]", nb: "[Tidligere jobb eller lærlingtid]" }
+    org: "[Company]"
+    desc: { en: "[What you did there.]", nb: "[Hva du gjorde der.]" }
+
+sponsor_offer:
+  en: "[What sponsors get – e.g. credit on the project page and in videos]"
+  nb: "[Hva sponsorer får – f.eks. omtale på prosjektsiden og i videoer]"

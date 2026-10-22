@@ -1,0 +1,72 @@
+# Fixed words used around the site, in English (en) and Norwegian (no).
+
+# Project groups, in the order they appear on the homepage.
+groups:
+  - { key: land,     num: "01", en: "Land & Energy", nb: "Skog og energi" }
+  - { key: workshop, num: "02", en: "Workshop",      nb: "Verksted" }
+  - { key: tech,     num: "03", en: "Tech & Ideas",  nb: "Teknologi og ideer" }
+  - { key: outdoors, num: "04", en: "Outdoors",      nb: "Friluft" }
+
+# Status words. Use the key on the left in a project's "status:" line.
+status:
+  idea:       { en: "Idea",                nb: "Idé" }
+  started:    { en: "Started",             nb: "Startet" }
+  building:   { en: "Under construction",  nb: "Under bygging" }
+  ongoing:    { en: "Ongoing",             nb: "Pågår" }
+  inspection: { en: "Awaiting inspection", nb: "Venter på kontroll" }
+  beginner:   { en: "Just started",        nb: "Nettopp begynt" }
+  done:       { en: "Finished",            nb: "Ferdig" }
+
+nav_projects:   { en: "Projects", nb: "Prosjekter" }
+nav_about:      { en: "About", nb: "Om meg" }
+nav_experience: { en: "Experience", nb: "Erfaring" }
+nav_contact:    { en: "Contact", nb: "Kontakt" }
+all_projects:   { en: "See all projects", nb: "Se alle prosjekter" }
+back:           { en: "All projects", nb: "Alle prosjekter" }
+dark:           { en: "Dark", nb: "Mørk" }
+light:          { en: "Light", nb: "Lys" }
+by:             { en: "by", nb: "av" }
+cta_contact:    { en: "Get in touch", nb: "Ta kontakt" }
+cta_projects:   { en: "See the projects", nb: "Se prosjektene" }
+based:          { en: "Based in", nb: "Bosted" }
+day_job:        { en: "Day job", nb: "Jobb" }
+projects_word:  { en: "Projects", nb: "Prosjekter" }
+project_word:   { en: "Project", nb: "Prosjekt" }
+on_the_go:      { en: "on the go, from idea to running", nb: "i gang, fra idé til drift" }
+latest_kicker:  { en: "From the log", nb: "Fra loggen" }
+latest_title:   { en: "Latest updates", nb: "Siste oppdateringer" }
+read_more:      { en: "Read more", nb: "Les mer" }
+about_kicker:   { en: "About me", nb: "Om meg" }
+exp_kicker:     { en: "Skills & experience", nb: "Kompetanse og erfaring" }
+exp_title:      { en: "What I bring", nb: "Hva jeg kan" }
+toolbox:        { en: "Toolbox", nb: "Verktøykasse" }
+experience:     { en: "Experience", nb: "Erfaring" }
+cv_download:    { en: "Download CV (PDF)", nb: "Last ned CV (PDF)" }
+proj_title:     { en: "What I am building", nb: "Det jeg bygger" }
+proj_sub:       { en: "Every project has a status and a progress log. Follow the ones you are curious about.", nb: "Hvert prosjekt har status og en logg. Følg de du er nysgjerrig på." }
+on_hold:        { en: "On hold", nb: "På vent" }
+follow:         { en: "Follow the project", nb: "Følg prosjektet" }
+done_title:     { en: "Completed", nb: "Fullført" }
+done_suffix:    { en: "finished", nb: "ferdige" }
+done_empty:     { en: "Nothing finished yet. When a project is done, it moves here.", nb: "Ingenting ferdig ennå. Når et prosjekt er fullført, havner det her." }
+finished_on:    { en: "Finished", nb: "Ferdig" }
+contact_title:  { en: "Let us build something.", nb: "La oss bygge noe." }
+contact_body:   { en: "Hiring, sponsoring, or curious about one of the projects? I would like to hear from you.", nb: "Vil du ansette, sponse, eller vite mer om et prosjekt? Jeg hører gjerne fra deg." }
+email_me:       { en: "Email me", nb: "Send e-post" }
+sponsor_title:  { en: "Support a project", nb: "Støtt et prosjekt" }
+sponsor_body:   { en: "Equipment, materials, expertise or funding: every project page lists what would move it forward.", nb: "Utstyr, materialer, kompetanse eller midler: hver prosjektside viser hva som hjelper prosjektet videre." }
+follow_along:   { en: "Follow along", nb: "Følg med" }
+footer_built:   { en: "Built by hand · hosted on GitHub Pages", nb: "Bygget for hånd · driftet på GitHub Pages" }
+progress:       { en: "Progress", nb: "Fremdrift" }
+watch:          { en: "Watch on YouTube", nb: "Se på YouTube" }
+video_slot:     { en: "Watch the latest video", nb: "Se siste video" }
+detail_kicker:  { en: "In detail", nb: "I detalj" }
+detail_title:   { en: "About the project", nb: "Om prosjektet" }
+log_title:      { en: "Progress log", nb: "Logg" }
+newest:         { en: "Newest first", nb: "Nyeste først" }
+log_empty:      { en: "No updates yet.", nb: "Ingen oppdateringer ennå." }
+help_title:     { en: "How you can help", nb: "Slik kan du hjelpe" }
+help_body:      { en: "This is what would move the project forward right now.", nb: "Dette er det som ville hjulpet prosjektet videre akkurat nå." }
+help_cta:       { en: "Contact me about this project", nb: "Kontakt meg om prosjektet" }
+follow_body:    { en: "Updates are posted here first, with video on YouTube and photos on Instagram.", nb: "Oppdateringer kommer her først, med video på YouTube og bilder på Instagram." }
+next_project:   { en: "Next project", nb: "Neste prosjekt" }

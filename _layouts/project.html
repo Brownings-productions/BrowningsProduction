@@ -1,0 +1,131 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n -%}
+{%- assign me = site.data.profile -%}
+{%- assign p = page -%}
+{%- assign st = t.status[p.status] -%}
+{%- assign grp = t.groups | where: "key", p.group | first -%}
+{%- assign entries = site.log | where: "project", page.slug | sort: "date" | reverse -%}
+{%- assign all = site.projects | sort: "order" -%}
+{%- assign idx = 0 -%}
+{%- for x in all -%}{%- if x.url == page.url -%}{%- assign idx = forloop.index -%}{%- endif -%}{%- endfor -%}
+{%- assign idx = idx | modulo: all.size -%}
+{%- assign next = all[idx] -%}
+{%- assign yt = p.youtube | default: "" -%}
+
+<!-- PROJECT HEADER -->
+<section class="wrap phead">
+  <div class="phead-text intro">
+    <div class="kicker">{% include tr.html v=grp %} · {% include tr.html v=t.project_word %} {{ p.order | prepend: "0" | slice: -2, 2 }}</div>
+    <h1 class="display h-hero wipe">{% include tr.html v=p.title %}</h1>
+    <p class="lead">{% include tr.html v=p.lead %}</p>
+    {%- if yt != "" -%}
+    <div class="btn-row">
+      <a class="btn btn-light" href="{{ yt }}">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+        {% include tr.html v=t.watch %}
+      </a>
+    </div>
+    {%- endif -%}
+  </div>
+  <dl class="facts intro-2">
+    <div><dt>Status</dt><dd>{% include tr.html v=st %}</dd></div>
+    {%- for f in p.facts -%}
+    <div><dt>{% include tr.html v=f.k %}</dt><dd>{% if f.v.en %}{% include tr.html v=f.v %}{% else %}{{ f.v }}{% endif %}</dd></div>
+    {%- endfor -%}
+    <div class="facts-progress">
+      <div class="status-row"><span class="label">{% include tr.html v=t.progress %}</span>{% if p.hold %}<span class="hold">{% include tr.html v=t.on_hold %}</span>{% endif %}</div>
+      {% include meter.html p=p %}
+    </div>
+  </dl>
+</section>
+
+<!-- MAIN PHOTO -->
+<div class="wrap">
+  {% include media.html src=p.photo label=p.photo_label ratio="21 / 9" cls="pop" alt=p.title.en %}
+</div>
+
+<!-- IN DETAIL -->
+<section class="wrap detail" aria-labelledby="detail-title">
+  <div class="stack detail-head">
+    <span class="kicker">{% include tr.html v=t.detail_kicker %}</span>
+    <h2 id="detail-title" class="display h-lg">{% include tr.html v=t.detail_title %}</h2>
+  </div>
+  <div class="detail-body">
+    {%- if yt != "" -%}
+    <a class="video pop" href="{{ yt }}">
+      <span class="play" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5l12 7-12 7z"/></svg></span>
+      <span class="label">{% include tr.html v=t.video_slot %}</span>
+    </a>
+    {%- endif -%}
+    {%- for d in p.detail -%}
+    <div class="detail-item reveal">
+      <h3 class="display h-sm">{% include tr.html v=d.h %}</h3>
+      <div lang="en">{{ d.body.en | markdownify }}</div>
+      <div lang="no">{{ d.body.nb | default: d.body.en | markdownify }}</div>
+    </div>
+    {%- endfor -%}
+    {% include media.html src=p.detail_photo label=p.detail_photo_label ratio="16 / 9" cls="pop" alt=p.title.en %}
+  </div>
+</section>
+
+<!-- LOG + SUPPORT -->
+<section id="log" class="wrap log-wrap">
+  <div class="log">
+    <div class="section-head">
+      <h2 class="display h-lg">{% include tr.html v=t.log_title %}</h2>
+      <span class="label">{% include tr.html v=t.newest %}</span>
+    </div>
+    {%- for e in entries -%}
+    <article class="entry reveal">
+      <div class="entry-meta">
+        <span class="date">{{ e.date | date: "%d.%m.%Y" }}</span>
+        <span class="label">{% include tr.html v=e.tag %}</span>
+      </div>
+      <div class="entry-body">
+        <h3 class="display h-sm">{% include tr.html v=e.title %}</h3>
+        <div lang="en">{{ e.body.en | markdownify }}</div>
+        <div lang="no">{{ e.body.nb | default: e.body.en | markdownify }}</div>
+        {%- if e.photo and e.photo != "" -%}
+        {% include media.html src=e.photo ratio="16 / 9" cls="pop" alt=e.title.en %}
+        {%- endif -%}
+      </div>
+    </article>
+    {%- else -%}
+    <p class="empty">{% include tr.html v=t.log_empty %}</p>
+    {%- endfor -%}
+  </div>
+
+  <aside class="aside reveal">
+    {%- if p.needs.size > 0 -%}
+    <div class="help">
+      <h2 class="display h-md">{% include tr.html v=t.help_title %}</h2>
+      <p>{% include tr.html v=t.help_body %}</p>
+      <ul>
+        {%- for n in p.needs -%}
+        <li><span class="label">{% include tr.html v=n.k %}</span><span>{% include tr.html v=n.v %}</span></li>
+        {%- endfor -%}
+      </ul>
+      <a class="btn btn-dark" href="{{ '/' | relative_url }}#contact">{% include tr.html v=t.help_cta %}</a>
+    </div>
+    {%- endif -%}
+    <div class="follow-box">
+      <span class="label">{% include tr.html v=t.follow_along %}</span>
+      <p>{% include tr.html v=t.follow_body %}</p>
+      <div class="btn-row">
+        {%- if yt != "" -%}<a class="btn btn-outline btn-sm" href="{{ yt }}">YouTube</a>{%- elsif me.links.youtube != "" -%}<a class="btn btn-outline btn-sm" href="{{ me.links.youtube }}">YouTube</a>{%- endif -%}
+        {%- if me.links.instagram != "" -%}<a class="btn btn-outline btn-sm" href="{{ me.links.instagram }}">Instagram</a>{%- endif -%}
+        {%- if p.github and p.github != "" -%}<a class="btn btn-outline btn-sm" href="{{ p.github }}">GitHub</a>{%- endif -%}
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- NEXT PROJECT -->
+<a class="next" href="{{ next.url | relative_url }}">
+  <div class="wrap next-row">
+    <span class="label">{% include tr.html v=t.next_project %}</span>
+    <span class="display next-title">{% include tr.html v=next.title %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>

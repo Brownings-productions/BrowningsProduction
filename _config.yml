@@ -1,0 +1,22 @@
+# ─────────────────────────────────────────────────────────────
+#  Site settings. You rarely need to touch this file.
+# ─────────────────────────────────────────────────────────────
+title: "Browning's Productions"
+description: "Project engineer, farmer and builder from Øyslebø, Norway. Forestry, solar power, a café racer, a forge and an AI smart house."
+
+# Your site lives at https://brownings-productions.github.io/BrowningsProduction/
+# so every link starts with the repository name. Change this only if you rename the repository.
+baseurl: "/BrowningsProduction"
+
+markdown: kramdown
+
+collections:
+  projects:            # one file per project in the _projects folder
+    output: true
+    permalink: /projects/:name/
+  log:                 # one file per progress-log entry in the _log folder
+    output: false
+
+exclude:
+  - README.md
+  - GUIDE.md

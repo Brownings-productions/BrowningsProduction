@@ -1,0 +1,6 @@
+Put your photos in this folder.
+
+Tips:
+- Use .jpg for photos. Resize them to about 1600–2000 px wide first so the site loads fast (under ~500 KB each).
+- Use simple file names without spaces or æ/ø/å, e.g. `solar-roof.jpg`.
+- Then point to them from a project file, e.g. `photo: "/assets/img/solar-roof.jpg"`.

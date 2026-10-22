@@ -1,0 +1,213 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n -%}
+{%- assign me = site.data.profile -%}
+{%- assign active = site.projects | where_exp: "p", "p.status != 'done'" -%}
+{%- assign finished = site.projects | where: "status", "done" | sort: "finished" | reverse -%}
+
+<!-- HERO -->
+<section id="top" class="wrap hero">
+  <div class="hero-text intro">
+    <div class="kicker">Øyslebø · Lindesnes · Norway</div>
+    <h1 class="display hero-title wipe">{{ me.brand }}</h1>
+    <div class="byline">{% include tr.html v=t.by %} {{ me.name }}</div>
+    <p class="lead"><span lang="en">{{ me.hero_lead.en }}</span><span lang="no">{{ me.hero_lead.nb }}</span></p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#contact">{% include tr.html v=t.cta_contact %} <span aria-hidden="true">→</span></a>
+      <a class="btn btn-outline" href="#projects">{% include tr.html v=t.cta_projects %}</a>
+    </div>
+  </div>
+  {% include media.html src=me.hero_photo label="PHOTO: you at the forge, on the bike or out in the forest" ratio="4 / 5" cls="hero-photo pop-in" alt=me.name %}
+</section>
+
+<!-- QUICK FACTS -->
+<section class="spec" aria-label="Quick facts">
+  <div class="wrap spec-grid">
+    <div><span class="label">{% include tr.html v=t.based %}</span><span class="value">{{ me.location }}</span></div>
+    <div><span class="label">{% include tr.html v=t.day_job %}</span><span class="value">{% include tr.html v=me.job %}</span></div>
+    <div><span class="label">{% include tr.html v=t.projects_word %}</span><span class="value">{{ active.size }} {% include tr.html v=t.on_the_go %}</span></div>
+  </div>
+</section>
+
+<!-- LATEST UPDATES -->
+{%- assign latest = site.log | sort: "date" | reverse -%}
+{%- if latest.size > 0 -%}
+<section class="wrap latest" aria-labelledby="latest-title">
+  <div class="section-head">
+    <div>
+      <span class="kicker">{% include tr.html v=t.latest_kicker %}</span>
+      <h2 id="latest-title" class="display h-md">{% include tr.html v=t.latest_title %}</h2>
+    </div>
+    <a class="link-accent" href="#projects">{% include tr.html v=t.all_projects %} →</a>
+  </div>
+  <div class="latest-grid">
+    {%- for e in latest limit: 3 -%}
+    {%- assign proj = site.projects | where: "slug", e.project | first -%}
+    <a class="update reveal" href="{{ proj.url | relative_url }}#log">
+      <div class="update-meta"><span class="date">{{ e.date | date: "%d.%m.%Y" }}</span><span>{% include tr.html v=proj.title %}</span></div>
+      <h3 class="display h-sm">{% include tr.html v=e.title %}</h3>
+      <p><span lang="en">{{ e.body.en | markdownify | strip_html | truncatewords: 24 }}</span><span lang="no">{{ e.body.nb | default: e.body.en | markdownify | strip_html | truncatewords: 24 }}</span></p>
+      <span class="link-accent">{% include tr.html v=t.read_more %} →</span>
+    </a>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+<!-- ABOUT -->
+<section id="about" class="wrap about reveal">
+  {% include media.html src=me.about_photo label="PHOTO: the farm in Øyslebø" ratio="3 / 2" cls="pop" alt="The farm" %}
+  <div class="stack">
+    <div class="kicker">{% include tr.html v=t.about_kicker %}</div>
+    <h2 class="display h-lg">{% include tr.html v=me.about_title %}</h2>
+    {%- for para in me.about -%}
+    <p><span lang="en">{{ para.en }}</span><span lang="no">{{ para.nb }}</span></p>
+    {%- endfor -%}
+  </div>
+</section>
+
+<!-- SKILLS & EXPERIENCE -->
+<section id="experience" class="band" aria-labelledby="experience-title">
+  <div class="wrap section">
+    <div class="stack">
+      <span class="kicker">{% include tr.html v=t.exp_kicker %}</span>
+      <h2 id="experience-title" class="display h-xl">{% include tr.html v=t.exp_title %}</h2>
+    </div>
+    <div class="two-col">
+      <div class="stack-lg">
+        <h3 class="display h-sm">{% include tr.html v=t.toolbox %}</h3>
+        {%- for g in me.skills -%}
+        <div class="skill-group reveal">
+          <span class="label">{% include tr.html v=g.group %}</span>
+          <ul class="chips">
+            {%- for s in g.items -%}
+            {%- assign first = s.en | slice: 0 -%}
+            <li class="{% if first == '[' %}chip-ph{% endif %}">{% include tr.html v=s %}</li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        {%- endfor -%}
+      </div>
+      <div class="stack-lg">
+        <h3 class="display h-sm">{% include tr.html v=t.experience %}</h3>
+        <ol class="timeline">
+          {%- for x in me.timeline -%}
+          <li class="reveal">
+            <span class="when">{% include tr.html v=x.when %}</span>
+            <div class="what">
+              <span class="role">{% include tr.html v=x.role %}</span>
+              <span class="org">{{ x.org }}</span>
+              <span class="desc">{% include tr.html v=x.desc %}</span>
+            </div>
+          </li>
+          {%- endfor -%}
+        </ol>
+        <div class="btn-row">
+          {%- if me.cv != "" -%}<a class="btn btn-primary" href="{{ me.cv | relative_url }}" download>↓ {% include tr.html v=t.cv_download %}</a>{%- endif -%}
+          {%- if me.links.linkedin != "" -%}<a class="btn btn-outline" href="{{ me.links.linkedin }}">LinkedIn</a>{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="band">
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <div class="stack">
+        <div class="kicker">{% include tr.html v=t.projects_word %}</div>
+        <h2 class="display h-xl">{% include tr.html v=t.proj_title %}</h2>
+      </div>
+      <p class="muted narrow">{% include tr.html v=t.proj_sub %}</p>
+    </div>
+
+    {%- for g in t.groups -%}
+    {%- assign items = active | where: "group", g.key | sort: "order" -%}
+    {%- if items.size > 0 -%}
+    <div class="group reveal">
+      <div class="group-head"><span class="num">{{ g.num }}</span><h3 class="display h-sm">{% include tr.html v=g %}</h3></div>
+      <div class="cards">
+        {%- for p in items -%}
+        {%- assign st = t.status[p.status] -%}
+        <article class="card">
+          {% include media.html src=p.photo label=p.photo_label ratio="16 / 10" cls="pop" alt=p.title.en %}
+          <div class="card-body">
+            <h4 class="display card-title">{% include tr.html v=p.title %}</h4>
+            <p class="card-text">{% include tr.html v=p.summary %}</p>
+            <div class="status-row">
+              <span class="label">Status</span>
+              <span class="status">{% if p.hold %}<span class="hold">{% include tr.html v=t.on_hold %}</span>{% endif %}{% include tr.html v=st %}</span>
+            </div>
+            {% include meter.html p=p %}
+            <a class="card-link" href="{{ p.url | relative_url }}">{% include tr.html v=t.follow %} →</a>
+          </div>
+        </article>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<!-- COMPLETED -->
+<section id="completed" class="wrap completed reveal" aria-labelledby="completed-title">
+  <div class="group-head">
+    <span class="num">{{ finished.size | prepend: "0" | slice: -2, 2 }} {% include tr.html v=t.done_suffix %}</span>
+    <h2 id="completed-title" class="display h-sm">{% include tr.html v=t.done_title %}</h2>
+  </div>
+  <div class="completed-list">
+    {%- if finished.size > 0 -%}
+    <ul>
+      {%- for p in finished -%}
+      <li><a href="{{ p.url | relative_url }}">
+        <span class="done-title"><span class="check" aria-hidden="true">✓</span><span class="display">{% include tr.html v=p.title %}</span></span>
+        {%- assign grp = t.groups | where: "key", p.group | first -%}
+        <span class="label">{% include tr.html v=grp %}</span>
+        <span class="label">{% include tr.html v=t.finished_on %} {{ p.finished }}</span>
+      </a></li>
+      {%- endfor -%}
+    </ul>
+    {%- else -%}
+    <p class="empty">{% include tr.html v=t.done_empty %}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap contact-grid reveal">
+    <div class="stack">
+      <div class="kicker-plain">{% include tr.html v=t.nav_contact %}</div>
+      <h2 class="display h-xxl">{% include tr.html v=t.contact_title %}</h2>
+      <p class="lead-plain">{% include tr.html v=t.contact_body %}</p>
+      <div class="btn-row">
+        {%- if me.email != "" -%}
+        <a class="btn btn-dark" href="mailto:{{ me.email }}">{{ me.email }}</a>
+        {%- else -%}
+        <span class="btn btn-dark">[YOUR EMAIL]</span>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="stack-lg">
+      <div class="sponsor-box">
+        <h3 class="display h-sm">{% include tr.html v=t.sponsor_title %}</h3>
+        <p>{% include tr.html v=t.sponsor_body %}</p>
+        <p class="mono">{% include tr.html v=me.sponsor_offer %}</p>
+      </div>
+      {%- assign has_links = false -%}{%- for l in me.links -%}{%- if l[1] != "" -%}{%- assign has_links = true -%}{%- endif -%}{%- endfor -%}
+      {%- if has_links -%}
+      <div class="stack">
+        <span class="kicker-plain">{% include tr.html v=t.follow_along %}</span>
+        <div class="btn-row">
+          {%- for l in me.links -%}{%- if l[1] != "" -%}
+          <a class="btn btn-on-accent" href="{{ l[1] }}">{{ l[0] | replace: "youtube", "YouTube" | replace: "instagram", "Instagram" | replace: "linkedin", "LinkedIn" | replace: "github", "GitHub" }}</a>
+          {%- endif -%}{%- endfor -%}
+        </div>
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
